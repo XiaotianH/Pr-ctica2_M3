@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Practica2_M5">
+  <ClassDiagramComponents>
+    <Class name="Autor" package="practica2_m5" visibility="public" xPosition="-137.0" yPosition="773.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="dataNaixement" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="nacionalitat"/>
+          <Argument type="LocalDate" name="dataNaixement"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="nom"/>
+        </Method>
+        <Method name="getNacionalitat" returnType="String" visibility="public"/>
+        <Method name="setNacionalitat" returnType="void" visibility="public">
+          <Argument type="String" name="nacionalitat"/>
+        </Method>
+        <Method name="getDataNaixement" returnType="LocalDate" visibility="public"/>
+        <Method name="setDataNaixement" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="dataNaixement"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Biblioteca" package="practica2_m5" visibility="public" xPosition="588.0" yPosition="353.0">
+      <Fields>
+        <Field name="llibres" type="List&lt;Llibre&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="List&lt;Llibre&gt;" name="llibres"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLlibres" returnType="List&lt;Llibre&gt;" visibility="public"/>
+        <Method name="setLlibres" returnType="void" visibility="public">
+          <Argument type="List&lt;Llibre&gt;" name="llibres"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Copia" package="practica2_m5" visibility="public" xPosition="1156.0" yPosition="868.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="tipus"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="LocalDate" name="any"/>
+          <Argument type="String" name="autor"/>
+          <Argument type="String" name="identificador"/>
+          <Argument type="String" name="estatLlibre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdentificador" returnType="String" visibility="public"/>
+        <Method name="setIdentificador" returnType="void" visibility="public">
+          <Argument type="String" name="identificador"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Lector" package="practica2_m5" visibility="public" xPosition="621.0" yPosition="1386.0">
+      <Fields>
+        <Field name="MaxLlibres" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="MaxLlibres"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMaxLlibres" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Llibre" package="practica2_m5" visibility="public" xPosition="481.0" yPosition="773.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="any" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="tipus"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="LocalDate" name="any"/>
+          <Argument type="String" name="autor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="nom"/>
+        </Method>
+        <Method name="getTipus" returnType="String" visibility="public"/>
+        <Method name="setTipus" returnType="void" visibility="public">
+          <Argument type="String" name="tipus"/>
+        </Method>
+        <Method name="getEditorial" returnType="String" visibility="public"/>
+        <Method name="setEditorial" returnType="void" visibility="public">
+          <Argument type="String" name="editorial"/>
+        </Method>
+        <Method name="getAny" returnType="LocalDate" visibility="public"/>
+        <Method name="setAny" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="any"/>
+        </Method>
+        <Method name="getAutor" returnType="String" visibility="public"/>
+        <Method name="setAutor" returnType="void" visibility="public">
+          <Argument type="String" name="autor"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Crea" source="practica2_m5.Autor" target="practica2_m5.Llibre" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="Llegit per" source="practica2_m5.Llibre" target="practica2_m5.Lector" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="llibres" source="practica2_m5.Biblioteca" target="practica2_m5.Llibre" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Llibre&gt;"/>
+    <IsRelation name="is" source="practica2_m5.Copia" target="practica2_m5.Llibre"/>
+    <UseRelation source="practica2_m5.Biblioteca" target="practica2_m5.Llibre" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
